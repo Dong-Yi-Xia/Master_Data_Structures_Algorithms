@@ -23,6 +23,16 @@ md5 (type of hash function)
 - search O(1)
 
 
+Pro
+- fast lookups
+- fast inserts
+- flexiabale keys
+
+Con
+- unorder
+- slow key iteration
+
+
 Because memory space is limited and randomly assigned, the memory address that store key:value will collide, called collision hash.
 
 Same address in memory with many different key:value pairs.  
@@ -31,3 +41,4 @@ This create something known as **linked list** data structure
 
 O(n/k) - k is size of the collusion table
 O(n) - simplified 
+
