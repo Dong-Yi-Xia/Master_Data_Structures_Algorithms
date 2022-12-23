@@ -153,6 +153,31 @@ class LinkedList {
         this.head = first
         return this
     }
+
+    reverse2(){
+        //If there is only 1 element
+        if(!this.head.next){
+            return this
+        }
+
+        let head = this.head
+        let prevNode = null
+        let nextNode = null
+        //If second element exist
+        while(head){
+            nextNode = head.next
+            head.next = prevNode
+            prevNode = head
+            head = nextNode
+        }
+
+        //the tail is the inital head
+        this.head.next = null
+        this.tail = this.head
+
+        this.head = prevNode
+        return this
+    }
 }
 
 const myLinkedList = new LinkedList(10)
@@ -168,7 +193,8 @@ myLinkedList.insert(100, 82)
 myLinkedList.remove(0) //O(n)
 console.log(myLinkedList.length)
 
-myLinkedList.reverse()
+// myLinkedList.reverse()
+myLinkedList.reverse2()
 
 myLinkedList.printList()
 console.log(myLinkedList)
