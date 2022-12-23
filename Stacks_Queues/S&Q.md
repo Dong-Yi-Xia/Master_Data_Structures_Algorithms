@@ -40,7 +40,7 @@ Linked List
     H-----T  << Add NewNode 
 ```
 
-Array  
+Array - DON'T USE Array for Queues because of shift O(n)   
 using push() and shift()
 
 ---
