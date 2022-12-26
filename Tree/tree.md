@@ -56,6 +56,8 @@ O(log N) is dividing and conquering
 - insert O(n)
 - delete O(n)
 
+Balanced - AVL Trees and Red Black Trees
+
 ### BST pro and cons
 Pro
 - better than O(n)
@@ -64,6 +66,7 @@ Pro
 
 Con
 - no O(1) operations
+
 
 ### **Full Binary Tree**
 - 0 or 2 child node, never 1 child
