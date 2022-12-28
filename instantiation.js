@@ -1,6 +1,6 @@
 // instantiation
 
-// this keyword refer to the object it lives in
+// this keyword refer to the class object it lives in
 function first(){
     // "this" is function first lives in the window object
     // this.alert() is the same as window.alert()
