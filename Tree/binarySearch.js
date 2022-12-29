@@ -1,7 +1,9 @@
-function Node(value) {
-  this.value = value;
-  this.left = null;
-  this.right = null;
+class Node {
+  constructor(value) {
+    this.left = null;
+    this.right = null;
+    this.value = value;
+  }
 }
 
 class BinarySearchTree {
