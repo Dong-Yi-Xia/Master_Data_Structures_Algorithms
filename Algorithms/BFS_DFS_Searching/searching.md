@@ -3,9 +3,9 @@
 Searching/Traversal
 - linear search - O(n)
 - binary search - O(log n)
-- depth first search - O(n)
-- breadth first search - O(n)
-
+- depth first search - O(n) --- memory O(height of tree)
+- breadth first search - O(n) --- memory O(n) the queue 
+ 
 ## Linear Search 
 - a straight line, best case O(1) and worst O(n)
 - array
@@ -49,6 +49,14 @@ Traversal - visiting nodes
 | less memory          | can get slow |
 | does the path exist? |              |
 
+DFS has three types of list
+```
+   101
+33    105
+```
+- inorder - 33,101,105       left,parent,right
+- preporder - 101, 33, 105   parent,left,right
+- postorder - 33, 105, 101   left,right,parent
 
 ## Exercise
 ```

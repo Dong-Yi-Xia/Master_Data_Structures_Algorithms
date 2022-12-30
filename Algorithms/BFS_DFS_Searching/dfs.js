@@ -56,44 +56,68 @@ class BinarySearchTree {
     return null;
   }
 
-  breadthFirstSearch() {
-    let currentNode = this.root
-    let list = []
-    let queue = [] // Queue can get quite large, memory expensive
-    queue.push(currentNode)
-
-    while(queue.length > 0){
-      currentNode = queue.shift()
-      list.push(currentNode.value)
-      if(currentNode.left){
-        queue.push(currentNode.left)
-      }
-      if(currentNode.right){
-        queue.push(currentNode.right)
-      }
-    }
-    return list
+  DFSInorder() {
+    return traverseInorder(this.root, []);
   }
 
-  breadthFirstSearchRecursive(queue, list){ 
-    //need parameter to save queue and list in recursive
-    if(!queue.length){
-      return list
-    }
-    let currentNode = queue.shift()
-    list.push(currentNode.value)
-    if(currentNode.left){
-      queue.push(currentNode.left)
-    }
-    if(currentNode.right){
-      queue.push(currentNode.right)
-    }
-
-    return this.breadthFirstSearchRecursive(queue, list)
+  DFSPreorder() {
+    return traversePreorder(this.root, []);
   }
 
-
+  DFSPostorder() {
+    return traversePostorder(this.root, []);
+  }
 }
+
+function traverseInorder(node, list) {
+  // console.log(node.value)
+  //Go to the most left leaf node
+  if (node.left) {
+    traverseInorder(node.left, list);
+  }
+  //When we are at leaf, proceed with the next step
+  list.push(node.value);
+
+  if (node.right) {
+    traverseInorder(node.right, list);
+  }
+  return list;
+}  // O(height of tree) stack call of the most depth node
+
+function traversePreorder(node, list) {
+  //Parent first
+  list.push(node.value);
+
+  if (node.left) {
+    traversePreorder(node.left, list);
+  }
+
+  if (node.right) {
+    traversePreorder(node.right, list);
+  }
+  return list;
+}  // O(height of tree) stack call of the most depth node
+
+function traversePostorder(node, list) {
+  if (node.left) {
+    traversePostorder(node.left, list);
+  }
+
+  if (node.right) {
+    traversePostorder(node.right, list);
+  }
+  //parent last
+  list.push(node.value);
+  return list;
+}  // O(height of tree) stack call of the most depth node
+
+//     9
+//  4     20
+//1  6  15  170
+
+// inorder - [1,4,6,9,15,20,170]  left,parent,right - smallest to largest
+// preorder - [9,4,1,6,20,15,170]  parent,left,right
+// postorder - [1,6,4,15,170,20,9] left,right,parent
 
 const tree = new BinarySearchTree();
 tree.insert(9);
@@ -104,15 +128,12 @@ tree.insert(170);
 tree.insert(15);
 tree.insert(1);
 
-console.log(tree.breadthFirstSearch())
-console.log(tree.breadthFirstSearchRecursive([tree.root], []))
+// console.log(tree.DFSInorder());
+// console.log(tree.DFSPreorder());
+console.log(tree.DFSPostorder());
 
 // console.log(tree.lookup(20));
 // console.log(JSON.stringify(traverse(tree.root)));
-
-//     9
-//  4     20
-//1  6  15  170
 
 function traverse(node) {
   const tree = { value: node.value };
