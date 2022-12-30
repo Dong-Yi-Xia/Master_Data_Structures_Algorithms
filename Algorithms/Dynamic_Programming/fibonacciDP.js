@@ -50,3 +50,16 @@ function fibonacciMemorized() {
 const fib = fibonacciMemorized();
 console.log(fib(6));
 
+
+
+///////////////////////////////////
+// This is also known as bottom up. Simple to complex
+function fibonacciIterative(n) {
+    let arr = [0, 1]
+  
+    for(i=2; i <= n; i++){
+      arr.push(arr[i-2] + arr[i-1])
+    }
+  
+    return arr[n]
+  } // O(n)
