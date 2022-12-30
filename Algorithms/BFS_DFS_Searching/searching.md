@@ -20,6 +20,7 @@ Traversal - visiting nodes
 ## Breadth First Search/Traversal
 - go left to right, level by level
 - use additional memory keep track of every node and its children
+- shortest path
 ```
      9
   4     20
@@ -37,6 +38,7 @@ Traversal - visiting nodes
 - When reach the end travel back up to the closest ancestor node and travel back the other path
 - Lower memory requirement 
 - Want to go deep a possible, left to right
+- check to see if path exists
 ```
      9
   4     20
@@ -78,3 +80,11 @@ DFS
 //Finding the shortest path:
 BFS
 ```
+
+## Special Case - Shortest Path
+DFS doesn't assume any weight on the graph  
+Example, map route --> number of cars, traffic condition, distance, node to node
+
+For shortest path with weighted graph use
+- Bellman-Ford (can use negative weight, O(n^2))
+- Dijkstra (faster, cannot account for negative weight)
